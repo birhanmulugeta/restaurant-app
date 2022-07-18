@@ -9,13 +9,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> catagories = [
-    "foods",
-    "soft drinks",
-    "alcohol's ",
-    "traditional foods",
-    "most selected",
-    "foreign foods"
+  int currentIndex = 0;
+  final screens =[
+    Center(child: Text("Home" , style:  TextStyle(fontSize: 60),)),
+    Center(child: Text("Menu" , style:  TextStyle(fontSize: 60),)),
+    Center(child: Text("Cart" , style:  TextStyle(fontSize: 60),)),
+    Center(child: Text("Reserve" , style:  TextStyle(fontSize: 60),)),
+
   ];
 
   @override
@@ -47,33 +47,11 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
           children: <Widget>[
-            Container(
-              height: 90.0,
-              color: Colors.amberAccent,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: catagories.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 20.0,
-                    ),
-                    child: Text(
-                      catagories[index],
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.5,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+           CatagorySelector(),
+            screens[currentIndex],
           ]
       ),
+
 
         bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 35),
@@ -94,29 +72,93 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.home),
-              onPressed: () {},
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (index) => setState(() => currentIndex = index),
+          items: const[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: "Home",
+                backgroundColor: Colors.amber,
             ),
-            IconButton(
-              icon: const Icon(Icons.list),
-              onPressed: () {},
+            BottomNavigationBarItem(
+                icon: Icon(Icons.menu),
+                label: "Menu",
+                backgroundColor: Colors.amber,
             ),
-            IconButton(
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: () {},
+            BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart),
+                label: "Cart",
+                backgroundColor: Colors.amber,
             ),
-            IconButton(
-              icon: const Icon(Icons.food_bank_sharp),
-              onPressed: () {},
+            BottomNavigationBarItem(
+                icon: Icon(Icons.food_bank_outlined),
+                label: "Reserve",
+                backgroundColor: Colors.amber,
             ),
-      ]
+
+          ],
+
+
     ),
-    ),
+        ),
     );
   }
   }
+
+  class CatagorySelector extends StatefulWidget {
+  const CatagorySelector({Key? key}) : super(key: key);
+
+
+    @override
+    State<CatagorySelector> createState() => _CatagorySelectorState();
+  }
+
+  class _CatagorySelectorState extends State<CatagorySelector> {
+    int selectedIndex = 0;
+    final List<String> catagories = [
+      "foods",
+      "soft drinks",
+      "alcohol's ",
+      "traditional foods",
+      "most selected",
+      "foreign foods"
+    ];
+    @override
+    Widget build(BuildContext context) {
+      return  Container(
+        height: 90.0,
+        color: Colors.amberAccent,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: catagories.length,
+          itemBuilder: (BuildContext context,int index) {
+            return GestureDetector(
+              onTap: (){
+                setState((){
+                  selectedIndex = index;
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                  vertical: 20.0,
+                ),
+                child: Text(
+                  catagories[index],
+                  style:  TextStyle(
+                    color: index == selectedIndex ? Colors.white : Colors.white60,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      );
+    }
+  }
+
 
