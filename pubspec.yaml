@@ -55,10 +55,11 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter_native_splash:
-  color: "#f54242"
-  image: assets/background.png
+#  color: "#f54242"
+  background_image: assets/backg.png
+  image: assets/logo.png
   android_12:
-#  image: assets/backdround.png
+#
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
