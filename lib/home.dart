@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text(
           "restaurant app",
           style: TextStyle(
+            fontFamily: 'EduNSWACTFoundation',
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
           ),
