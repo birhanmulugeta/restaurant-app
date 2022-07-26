@@ -4,3 +4,4 @@ const String HomePageRoute = '/';
 const String CartRoute = 'cart';
 const String MenuRoute = 'menu';
 const String ReserveRoute = 'reserve';
+const String AboutUsRoute='about';

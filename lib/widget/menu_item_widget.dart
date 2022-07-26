@@ -1,37 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
-// class MenuItem extends StatelessWidget {
-//   const MenuItem({Key? key, required this.menuItemObject}) : super(key: key);
-//
-//   final Object menuItemObject;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
-
-// class Menu{
-//    int? _id;
-// string _title;
-//string _description;
-//boolean _status;
-//string _imageUrl;
-//string _altText;
-//double _price;
-//string _type; //Food, Drink,
-//string _foodType; //Traditional, Fasting, FastFood, Vegitables (Future)
-//Add other relevant fields and common fiels like timestap (created date, updated date)
-//
-//    Menu(){}
-//
-//   //Method
-// GetRestaurantMenus(){
-//      //TODO: Returns the active menus in the restaurant.
-// }
-// }
 class RecipeCard extends StatelessWidget {
   final String title;
   final String price;
@@ -152,8 +120,8 @@ class RecipeCard extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30)),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.9),
@@ -179,82 +147,105 @@ class RecipeCard extends StatelessWidget {
                              fontSize: 15,
 
 
-                        )),
+                                      )),
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.amber)),
-                          onPressed: null,
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.food_bank,
-                                color: Colors.black,
-                                size:
-                                    MediaQuery.of(context).size.width * 0.07,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment
+                                        .spaceEvenly,
+                                    children: [
+                                      ElevatedButton(
+
+                                        style: ButtonStyle(
+
+                                            backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Colors.amber)),
+                                        onPressed: null,
+                                        child: Row(
+                                          children: [
+                                            Icon(
+
+                                              Icons.food_bank,
+                                              color: Colors.black,
+                                              size:
+                                              MediaQuery
+                                                  .of(context)
+                                                  .size
+                                                  .width * 0.04,
+                                            ),
+                                            const Text("Order",
+                                                style: TextStyle(
+                                                    color: Colors.black)),
+                                            // const ReadMoreText(
+                                            //   'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+                                            //   trimLines: 2,
+                                            //   colorClickableText: Colors.pink,
+                                            //   trimMode: TrimMode.Line,
+                                            //   trimCollapsedText: '...Show more',
+                                            //   trimExpandedText: ' show less',
+                                            // ),
+                                          ],
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Colors.amber)),
+                                        onPressed: null,
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Icons.shopping_cart,
+                                              color: Colors.black,
+                                              size:
+                                              MediaQuery
+                                                  .of(context)
+                                                  .size
+                                                  .width * 0.04,
+                                            ),
+                                            const Text(" To cart",
+                                                style: TextStyle(
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Colors.amber)),
+                                        onPressed: null,
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Icons.delivery_dining,
+                                              color: Colors.black,
+                                              size:
+                                              MediaQuery
+                                                  .of(context)
+                                                  .size
+                                                  .width * 0.04,
+                                            ),
+                                            const Text("Deliver",
+                                                style: TextStyle(
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              const Text("Order",
-                                  style: TextStyle(color: Colors.black)),
-                              // const ReadMoreText(
-                              //   'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
-                              //   trimLines: 2,
-                              //   colorClickableText: Colors.pink,
-                              //   trimMode: TrimMode.Line,
-                              //   trimCollapsedText: '...Show more',
-                              //   trimExpandedText: ' show less',
-                              // ),
-                            ],
-                          ),
-                        ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.amber)),
-                          onPressed: null,
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.shopping_cart,
-                                color: Colors.black,
-                                size:
-                                    MediaQuery.of(context).size.width * 0.07,
-                              ),
-                              const Text(" To cart",
-                                  style: TextStyle(color: Colors.black)),
-                            ],
-                          ),
-                        ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.amber)),
-                          onPressed: null,
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.delivery_dining,
-                                color: Colors.black,
-                                size:
-                                    MediaQuery.of(context).size.width * 0.07,
-                              ),
-                              const Text("Deliver",
-                                  style: TextStyle(color: Colors.black)),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )),
-        ],
-      ),
-    );
-  }
+
+                            )),
+                ],
+                      ),
+                    );
+
+
+
+          }
 }
 
 

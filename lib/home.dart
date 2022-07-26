@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/menu/customDrawer.dart';
+import 'package:restaurant_app/widget/Reserve.dart';
+import 'package:restaurant_app/widget/menu_item_widget.dart';
 //import 'package:restaurant_app/widgets/Catagory_Selector.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,23 +13,30 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  final screens = const [
+  final screens =  [
     Center(
-        child: Text(
-      "Home",
-      style: TextStyle(fontSize: 60),
-    )),
-    Center(
+      child:RecipeCard(
+        title: 'Pizza',
+        price: '130 br',
+        type: '30 min',
+        status: 'Exist',
+        description:
+        'Food for date, to chill with friends and if you have a small birthday.Food for date, to chill with friends and if you have a small birthday.',
+        thumbnailUrl: 'https://i.ibb.co/w011b16/food1.jpg',
+      ),
+
+    ),
+    const Center(
         child: Text(
       "Menu",
       style: TextStyle(fontSize: 60),
     )),
-    Center(
+    const Center(
         child: Text(
       "Cart",
       style: TextStyle(fontSize: 60),
     )),
-    Center(
+    const Center(
         child: Text(
       "Reserve",
       style: TextStyle(fontSize: 60),
@@ -40,8 +49,9 @@ class _HomePageState extends State<HomePage> {
       drawer: const CustomDrawer(),
       appBar: AppBar(
         title: const Text(
-          "restaurant app",
+          "Restaurant app",
           style: TextStyle(
+            color: Colors.white,
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
           ),
@@ -57,12 +67,13 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Column(children: <Widget>[
-        CatagorySelector(),
+        CatagorySelector(
+        ),
         screens[currentIndex],
       ]),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 35),
-        height: 75,
+        height: 60,
         width: double.infinity,
         // double.infinity means it cove the available width
         decoration: BoxDecoration(
@@ -120,17 +131,18 @@ class CatagorySelector extends StatefulWidget {
 class _CatagorySelectorState extends State<CatagorySelector> {
   int selectedIndex = 0;
   final List<String> catagories = [
-    "foods",
-    "soft drinks",
-    "alcohol's ",
-    "traditional foods",
-    "most selected",
-    "foreign foods"
+    "Foods",
+    "Soft drinks",
+    "Alcohol's ",
+    "Traditional foods",
+    "Most selected",
+    "Foreign foods"
   ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90.0,
+      height: 65.0,
       color: Colors.amberAccent,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -153,7 +165,7 @@ class _CatagorySelectorState extends State<CatagorySelector> {
                   color: index == selectedIndex ? Colors.white : Colors.white60,
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 1.5,
+                  letterSpacing: 1.0,
                 ),
               ),
             ),
