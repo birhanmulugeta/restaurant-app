@@ -20,7 +20,7 @@ class _ReservePlaceState extends State<ReservePlace> {
       appBar: AppBar(
         title: const Text("Reserve Place"),
       ),
-      body: Reserve(thumbnailUrl: 'https://i.ibb.co/JtWWbrx/OIP.jpg'),
+      body: const Reserve(thumbnailUrl: 'https://i.ibb.co/JtWWbrx/OIP.jpg'),
     );
   }
 }
