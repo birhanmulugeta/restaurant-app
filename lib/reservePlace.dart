@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:restaurant_app/menu/customDrawer.dart';
-import 'package:restaurant_app/widget/Reserve.dart';
+import 'package:restaurant_app/widget/Reserve.dart' ;
 
 class ReservePlace extends StatefulWidget {
   const ReservePlace({Key? key}) : super(key: key);
