@@ -13,6 +13,7 @@ class CustomDrawer extends StatelessWidget {
     return SafeArea(
       child: Drawer(
         width: screenWidth * 0.8,
+
         child: Column(
           children: [
             Container(
@@ -184,6 +185,9 @@ class CustomDrawer extends StatelessWidget {
                                   fontWeight: FontWeight.w400)),
                           onTap: () {
                             Navigator.pop(context);
+                              Navigator.pushNamed(context, AboutUsRoute);
+
+
                           },
                         ),
                       ),
