@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_app/menu/customDrawer.dart';
+import 'package:restaurant_app/widget/Reserve.dart';
+import 'package:restaurant_app/widget/menu_item_widget.dart';
 //import 'package:restaurant_app/widgets/Catagory_Selector.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,27 +13,45 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  final screens =[
-    Center(child: Text("Home" , style:  TextStyle(fontSize: 60),)),
-    Center(child: Text("Menu" , style:  TextStyle(fontSize: 60),)),
-    Center(child: Text("Cart" , style:  TextStyle(fontSize: 60),)),
-    Center(child: Text("Reserve" , style:  TextStyle(fontSize: 60),)),
+  final screens =  [
+    Center(
+      child:RecipeCard(
+        title: 'Pizza',
+        price: '130 br',
+        type: '30 min',
+        status: 'Exist',
+        description:
+        'Food for date, to chill with friends and if you have a small birthday.Food for date, to chill with friends and if you have a small birthday.',
+        thumbnailUrl: 'https://i.ibb.co/w011b16/food1.jpg',
+      ),
 
+    ),
+    const Center(
+        child: Text(
+      "Menu",
+      style: TextStyle(fontSize: 60),
+    )),
+    const Center(
+        child: Text(
+      "Cart",
+      style: TextStyle(fontSize: 60),
+    )),
+    const Center(
+        child: Text(
+      "Reserve",
+      style: TextStyle(fontSize: 60),
+    )),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(),
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          iconSize: 30,
-          color: Colors.black,
-          onPressed: () {},
-        ),
         title: const Text(
-          "restaurant app",
+          "Restaurant app",
           style: TextStyle(
+            color: Colors.white,
             fontFamily: 'EduNSWACTFoundation',
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
@@ -39,24 +60,21 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         actions: <Widget>[
           InkWell(
-            child:CircleAvatar(
+            child: CircleAvatar(
               backgroundColor: Colors.brown.shade800,
               child: const Text('AH'),
             ),
-      ),
+          ),
         ],
       ),
-      body: Column(
-          children: <Widget>[
-           CatagorySelector(),
-            screens[currentIndex],
-          ]
-      ),
-
-
-        bottomNavigationBar: Container(
+      body: Column(children: <Widget>[
+        CatagorySelector(
+        ),
+        screens[currentIndex],
+      ]),
+      bottomNavigationBar: Container(
         padding: const EdgeInsets.symmetric(horizontal: 35),
-        height: 75,
+        height: 60,
         width: double.infinity,
         // double.infinity means it cove the available width
         decoration: BoxDecoration(
@@ -76,90 +94,85 @@ class _HomePageState extends State<HomePage> {
         child: BottomNavigationBar(
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
-          items: const[
+          items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: "Home",
-                backgroundColor: Colors.amber,
+              icon: Icon(Icons.home),
+              label: "Home",
+              backgroundColor: Colors.amber,
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.menu),
-                label: "Menu",
-                backgroundColor: Colors.amber,
+              icon: Icon(Icons.menu),
+              label: "Menu",
+              backgroundColor: Colors.amber,
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart),
-                label: "Cart",
-                backgroundColor: Colors.amber,
+              icon: Icon(Icons.shopping_cart),
+              label: "Cart",
+              backgroundColor: Colors.amber,
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.food_bank_outlined),
-                label: "Reserve",
-                backgroundColor: Colors.amber,
+              icon: Icon(Icons.food_bank_outlined),
+              label: "Reserve",
+              backgroundColor: Colors.amber,
             ),
-
           ],
-
-
-    ),
         ),
+      ),
     );
   }
-  }
+}
 
-  class CatagorySelector extends StatefulWidget {
+class CatagorySelector extends StatefulWidget {
   const CatagorySelector({Key? key}) : super(key: key);
 
+  @override
+  State<CatagorySelector> createState() => _CatagorySelectorState();
+}
 
-    @override
-    State<CatagorySelector> createState() => _CatagorySelectorState();
-  }
+class _CatagorySelectorState extends State<CatagorySelector> {
+  int selectedIndex = 0;
+  final List<String> catagories = [
+    "Foods",
+    "Soft drinks",
+    "Alcohol's ",
+    "Traditional foods",
+    "Most selected",
+    "Foreign foods"
+  ];
 
-  class _CatagorySelectorState extends State<CatagorySelector> {
-    int selectedIndex = 0;
-    final List<String> catagories = [
-      "foods",
-      "soft drinks",
-      "alcohol's ",
-      "traditional foods",
-      "most selected",
-      "foreign foods"
-    ];
-    @override
-    Widget build(BuildContext context) {
-      return  Container(
-        height: 90.0,
-        color: Colors.amberAccent,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: catagories.length,
-          itemBuilder: (BuildContext context,int index) {
-            return GestureDetector(
-              onTap: (){
-                setState((){
-                  selectedIndex = index;
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                  vertical: 20.0,
-                ),
-                child: Text(
-                  catagories[index],
-                  style:  TextStyle(
-                    color: index == selectedIndex ? Colors.white : Colors.white60,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.5,
-                  ),
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 65.0,
+      color: Colors.amberAccent,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: catagories.length,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                selectedIndex = index;
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+                vertical: 20.0,
+              ),
+              child: Text(
+                catagories[index],
+                style: TextStyle(
+                  color: index == selectedIndex ? Colors.white : Colors.white60,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.0,
                 ),
               ),
-            );
-          },
-        ),
-      );
-    }
+            ),
+          );
+        },
+      ),
+    );
   }
-
-
+}
