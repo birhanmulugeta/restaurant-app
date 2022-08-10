@@ -6,7 +6,7 @@ class RecipeCard extends StatelessWidget {
   final String description;
   final String type;
   final String status;
-  final String thumbnailUrl;
+  final String? thumbnailUrl;
 
   RecipeCard({
     required this.title,
@@ -14,7 +14,7 @@ class RecipeCard extends StatelessWidget {
     required this.type,
     required this.description,
     required this.status,
-    required this.thumbnailUrl,
+    this.thumbnailUrl,
   });
 
   @override
@@ -49,7 +49,7 @@ class RecipeCard extends StatelessWidget {
                     Colors.black.withOpacity(0.35),
                     BlendMode.color,
                   ),
-                  image: NetworkImage(thumbnailUrl),
+                  image: NetworkImage("https://i.ibb.co/w011b16/food1.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -142,13 +142,10 @@ class RecipeCard extends StatelessWidget {
                     Text(description,
                         maxLines: 3,
                         style:
-                        TextStyle(
+                        const TextStyle(
                             color: Colors.black,
                              fontSize: 15,
-
-
                                       )),
-
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment
                                         .spaceEvenly,

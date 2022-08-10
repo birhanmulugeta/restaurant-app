@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
           "Restaurant app",
           style: TextStyle(
             color: Colors.white,
+            fontFamily: 'EduNSWACTFoundation',
             fontSize: 28.0,
             fontWeight: FontWeight.bold,
           ),
