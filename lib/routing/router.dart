@@ -19,7 +19,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case HomePageRoute:
       return MaterialPageRoute(builder: (context) => const HomePage());
     case CartRoute:
-      return MaterialPageRoute(builder: (context) => Cart());
+      return MaterialPageRoute(builder: (context) =>  Cart());
     case MenuRoute:
       return MaterialPageRoute(builder: (context) => const Menu());
     case ReserveRoute:

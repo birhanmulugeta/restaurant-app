@@ -10,7 +10,7 @@ class RecipeCard extends StatelessWidget {
   final String description;
   final String type;
   final String status;
-  final String thumbnailUrl;
+  final String? thumbnailUrl;
 
   final Product? product;
 
@@ -20,8 +20,11 @@ class RecipeCard extends StatelessWidget {
     required this.type,
     required this.description,
     required this.status,
+
     required this.thumbnailUrl,
     this.product
+
+  
   });
 
   @override
@@ -56,7 +59,7 @@ class RecipeCard extends StatelessWidget {
                     Colors.black.withOpacity(0.35),
                     BlendMode.color,
                   ),
-                  image: NetworkImage(thumbnailUrl),
+                  image: NetworkImage("https://i.ibb.co/w011b16/food1.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -160,8 +163,6 @@ class RecipeCard extends StatelessWidget {
                               backgroundColor:
                                   MaterialStateProperty.all(Colors.amber)),
                           onPressed: () {
-
-
                             Navigator.pop(context);
                             Navigator.push(
                               context,

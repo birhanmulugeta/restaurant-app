@@ -41,6 +41,7 @@ dependencies:
   read_more_less: ^0.0.4
   intl: ^0.17.0
   date_format: ^2.0.6
+
   cloud_firestore: ^3.4.3
   firebase_core: ^1.20.0
   colours: ^0.0.2
@@ -66,10 +67,14 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
+  google_fonts: ^3.0.1
+
 flutter_native_splash:
 #  color: "#f54242"
   background_image: assets/backg.png
   image: assets/logoo.png
+#  background_image: assets/images/splash_background.png
+#  image: assets/images/splash_logo.png
   android_12:
 #
 # For information on the generic Dart part of this file, see the
@@ -111,6 +116,11 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+  fonts:
+    - family: EduNSWACTFoundation
+      fonts:
+        - asset: assets/fonts/EduNSWACTFoundation-VariableFont_wght.ttf
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
