@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:restaurant_app/cart.dart';
 import 'package:restaurant_app/menu/customDrawer.dart';
 import 'package:restaurant_app/widget/Reserve.dart' ;
 
 class ReservePlace extends StatefulWidget {
-  const ReservePlace({Key? key, this.product}) : super(key: key);
-final Product? product;
+  const ReservePlace({Key? key}) : super(key: key);
+
   @override
   State<ReservePlace> createState() => _ReservePlaceState();
 }
@@ -21,7 +20,7 @@ class _ReservePlaceState extends State<ReservePlace> {
       appBar: AppBar(
         title: const Text("Reserve Place"),
       ),
-      body:  Reserve(thumbnailUrl: 'https://i.ibb.co/JtWWbrx/OIP.jpg', product: widget.product!,),
+      body: const Reserve(thumbnailUrl: 'https://i.ibb.co/JtWWbrx/OIP.jpg'),
     );
   }
 }
