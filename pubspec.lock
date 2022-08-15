@@ -78,6 +78,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
+  colour:
+    dependency: transitive
+    description:
+      name: colour
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
+  colours:
+    dependency: "direct main"
+    description:
+      name: colours
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   crypto:
     dependency: transitive
     description:
@@ -106,6 +120,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
+
   ffi:
     dependency: transitive
     description:
@@ -120,6 +135,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.2"
+
   firebase_core:
     dependency: "direct main"
     description:
@@ -310,6 +326,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
+
+  pigment:
+    dependency: transitive
+    description:
+      name: pigment
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
+
   platform:
     dependency: transitive
     description:
@@ -317,6 +342,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
+
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -324,6 +350,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+
   process:
     dependency: transitive
     description:
@@ -331,6 +358,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+
   read_more_less:
     dependency: "direct main"
     description:

@@ -130,6 +130,7 @@ class CustomDrawer extends StatelessWidget {
                                   fontWeight: FontWeight.w400)),
                           onTap: () {
                             Navigator.pop(context);
+                            Navigator.pushNamed(context, OrderListRoute);
                           },
                         ),
                       ),
@@ -148,7 +149,7 @@ class CustomDrawer extends StatelessWidget {
                                   fontWeight: FontWeight.w400)),
                           onTap: () {
                             Navigator.pop(context);
-                            Navigator.pushNamed(context, ReserveRoute);
+                            Navigator.pushNamed(context, ReserveOnlyRoute);
                           },
                         ),
                       ),
@@ -206,6 +207,8 @@ class CustomDrawer extends StatelessWidget {
                                   fontWeight: FontWeight.w400)),
                           onTap: () {
                             Navigator.pop(context);
+                            Navigator.pushNamed(context, LoginRoute);
+
                           },
                         ),
                       ),

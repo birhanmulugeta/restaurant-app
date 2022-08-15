@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'login.dart';
 import 'package:restaurant_app/home.dart';
 import 'package:restaurant_app/cart.dart';
 import 'package:restaurant_app/menu.dart';
 import 'package:restaurant_app/routing/router.dart';
 import 'package:restaurant_app/routing/routingConstants.dart';
-
 import 'package:restaurant_app/widget/checkBox.dart';
 import 'widget/menu_item_widget.dart';
 import 'widget/Reserve.dart';
@@ -19,7 +21,13 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+
+
   );
+  WidgetsFlutterBinding.ensureInitialized();
+
+  );
+
 
   FlutterNativeSplash.removeAfter(initialization);
 
@@ -70,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: const [
 
 
-          Reserve(thumbnailUrl: 'https://i.ibb.co/JtWWbrx/OIP.jpg'),
+
           // CheckBox(),
         ],
       ),
