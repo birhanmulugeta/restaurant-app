@@ -4,15 +4,16 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:restaurant_app/cart.dart';
 import 'package:restaurant_app/menu/customDrawer.dart';
 import 'package:restaurant_app/widget/Reserve.dart' ;
+import 'package:restaurant_app/widget/reserve_only.dart';
 
-class ReservePlace extends StatefulWidget {
-  const ReservePlace({Key? key, this.product}) : super(key: key);
-final Product? product;
+class ReservePlaceOnly extends StatefulWidget {
+  const ReservePlaceOnly({Key? key}) : super(key: key);
+  
   @override
-  State<ReservePlace> createState() => _ReservePlaceState();
+  State<ReservePlaceOnly> createState() => _ReservePlaceOnlyState();
 }
 
-class _ReservePlaceState extends State<ReservePlace> {
+class _ReservePlaceOnlyState extends State<ReservePlaceOnly> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +22,9 @@ class _ReservePlaceState extends State<ReservePlace> {
       appBar: AppBar(
         title: const Text("Reserve Place"),
       ),
-      body:  Reserve(thumbnailUrl: 'https://i.ibb.co/JtWWbrx/OIP.jpg', product: widget.product!,),
+      body:
+
+      ReserveOnly(thumbnailUrl: 'https://i.ibb.co/JtWWbrx/OIP.jpg'),
     );
   }
 }

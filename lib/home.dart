@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
     Center(
       child:RecipeCard(
         title: 'Pizza',
-        price: '130 br',
+        price: '130',
         type: '30 min',
         status: 'Exist',
         description:
